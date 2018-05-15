@@ -175,11 +175,13 @@ wait = {
     'detectMention':True,
     'leaveRoom':True,
     'timeline':True,
+    'like':True,
     'contact':False,
     'kickMention':False,
     'autoAdd':True,
     'autoCancel':{"on":True,"members":1},
     "comment":"ᴀᴜᴛᴏ ʟɪᴋᴇ ʙʏ : \nᴅɴᴀ ʙᴏᴛ \nᴏᴘᴇɴ ᴏʀᴅᴇʀ ʙᴏᴛ ᴘʀᴏᴛᴇᴄᴛ ᴘʏᴛʜᴏɴ 3 \nᴍɪɴᴀᴛ ᴘᴄ ᴀᴋᴜɴ ᴅɪ ʙᴀᴡᴀʜ \nᴄʀᴇᴀᴛᴏʀ line.me/ti/p/ppgIZ0JLDW",
+    "comment1":"ᴀᴜᴛᴏ ʟɪᴋᴇ ʙʏ : \nᴅɴᴀ ʙᴏᴛ \nᴄʀᴇᴀᴛᴏʀ line.me/ti/p/ppgIZ0JLDW",
     "lang":"JP",
     "ProtectQR":True,
     "autoJoin":True,
@@ -907,7 +909,7 @@ def bot(op):
                         ririn.sendText(msg.to,"ɪᴛ ɪs ɴᴏᴛ ɪɴ ᴛʜᴇ ʙʟᴀᴄᴋ ʟɪsᴛ")
             if msg.contentType == 16:
                 if wait["likeOn"] == True:
-                     url = msg.contentMetadata("line://home/post?userMid=" + "mid" + "&postId=" + "new_post")
+                     url = msg.contentMetadata["postEndUrl"]
                      ririn.like(url[25:58], url[66:], likeType=1005)
                      dna1.like(url[25:58], url[66:], likeType=1002)
                      dna2.like(url[25:58], url[66:], likeType=1004)
@@ -918,7 +920,6 @@ def bot(op):
                      dna7.like(url[25:58], url[66:], likeType=1004)
                      dna8.like(url[25:58], url[66:], likeType=1003)
                      dna9.like(url[25:58], url[66:], likeType=1001)
-                     ririn.comment(url[25:58], url[66:], wait["comment"])
                      dna1.comment(url[25:58], url[66:], wait["comment"])
                      dna2.comment(url[25:58], url[66:], wait["comment"])
                      dna3.comment(url[25:58], url[66:], wait["comment'"])
@@ -928,8 +929,21 @@ def bot(op):
                      dna7.comment(url[25:58], url[66:], wait["comment"])
                      dna8.comment(url[25:58], url[66:], wait["comment'"])
                      dna9.comment(url[25:58], url[66:], wait["comment"])
+                     ririn.comment(url[25:58], url[66:], wait["comment1"])
                      ririn.sendText(msg.to,"Like Success")                     
                      wait["likeOn"] = False
+            if msg.contentType == 16:
+            	url = msg.contentMetadata("line://home/post?userMid=" + "mid" + "&postId=" + "new_post")
+            	ririn.like(url[25:58], url[66:], likeType=1005)
+            	dna1.like(url[25:58], url[66:], likeType=1002)
+            	dna2.like(url[25:58], url[66:], likeType=1004)
+            	dna3.like(url[25:58], url[66:], likeType=1003)
+            	dna4.like(url[25:58], url[66:], likeType=1001)
+            	dna5.like(url[25:58], url[66:], likeType=1005)
+            	dna6.like(url[25:58], url[66:], likeType=1002)
+            	dna7.like(url[25:58], url[66:], likeType=1004)
+            	dna8.like(url[25:58], url[66:], likeType=1003)
+            	dna9.like(url[25:58], url[66:], likeType=1001)
 #------------------------------------------=Contact=----------------------------------------#
             elif wait["contact"] == True:
                     msg.contentType = 0

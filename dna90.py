@@ -260,7 +260,7 @@ def sendMessageWithMention(to, mid):
     except Exception as error:
         logError(error)
         if 'MENTION' in msg.contentMetadata.keys() != None:
-             if wait["detectMention2"] == True:          
+             if wait["detectMention"] == True:          
                 contact = ririn.getContact(msg._from)
                 cName = contact.displayName
                 balas = ["sᴇᴋᴀʟɪ ʟᴀɢɪ ɴɢᴇ ᴛᴀɢ ɢᴡ sᴜᴍᴘᴀʜɪɴ ᴊᴏᴍʙʟᴏ sᴇᴜᴍᴜʀ ʜɪᴅᴜᴘ!","ᴅᴏɴᴛ ᴛᴀɢ!! ʟᴀɢɪ sɪʙᴜᴋ",cName + " ɴɢᴀᴘᴀɪɴ ɴɢᴇᴛᴀɢ?",cName + " ɴɢɢᴀᴋ ᴜsᴀʜ ᴛᴀɢ-ᴛᴀɢ! ᴋᴀʟᴏ ᴘᴇɴᴛɪɴɢ ʟᴀɴɢsᴜɴɢ ᴘᴄ ᴀᴊᴀ","ᴛᴀɢ ᴍᴜʟᴜ ʟᴏ ᴀɴᴊɪʀʀ!","ᴅɪᴀ ʟᴀɢɪ ᴏғғ", cName + " ᴋᴇɴᴀᴘᴀ ᴛᴀɢ? ᴋᴀɴɢᴇɴ?","ᴅɪᴀ ʟᴀɢɪ ᴛɪᴅᴜʀ\nᴊᴀɴɢᴀɴ ᴅɪ ᴛᴀɢ " + cName, "ᴊᴀɴɢᴀɴ sᴜᴋᴀ ᴛᴀɢ ɢᴜᴀ " + cName, "ᴋᴀᴍᴜ sɪᴀᴘᴀ " + cName + "?", "ᴀᴅᴀ ᴘᴇʀʟᴜ ᴀᴘᴀ " + cName + "?","ᴡᴏɪɪ " + cName + " ᴊᴀɴɢᴀɴ ɴɢᴇᴛᴀɢ, ʀɪɪʙᴜᴛ!"]
@@ -947,43 +947,43 @@ def bot(op):
                    else:
                         wait["dblacklist"] = False
                         ririn.sendText(msg.to,"ɪᴛ ɪs ɴᴏᴛ ɪɴ ᴛʜᴇ ʙʟᴀᴄᴋ ʟɪsᴛ")
-            if msg.contentType == 16:
+            elif msg.contentType == 16:
                 if wait["likeOn"] == True:
-                     url = msg.contentMetadata["postEndUrl"]
-                     ririn.like(url[25:58], url[66:], likeType=1005)
-                     dna1.like(url[25:58], url[66:], likeType=1002)
-                     dna2.like(url[25:58], url[66:], likeType=1004)
-                     dna3.like(url[25:58], url[66:], likeType=1003)
-                     dna4.like(url[25:58], url[66:], likeType=1001)
-                     dna5.like(url[25:58], url[66:], likeType=1005)
-                     dna6.like(url[25:58], url[66:], likeType=1002)
-                     dna7.like(url[25:58], url[66:], likeType=1004)
-                     dna8.like(url[25:58], url[66:], likeType=1003)
-                     dna9.like(url[25:58], url[66:], likeType=1001)
-                     dna1.comment(url[25:58], url[66:], wait["comment"])
-                     dna2.comment(url[25:58], url[66:], wait["comment"])
-                     dna3.comment(url[25:58], url[66:], wait["comment'"])
-                     dna4.comment(url[25:58], url[66:], wait["comment"])
-                     dna5.comment(url[25:58], url[66:], wait["comment"])
-                     dna6.comment(url[25:58], url[66:], wait["comment"])
-                     dna7.comment(url[25:58], url[66:], wait["comment"])
-                     dna8.comment(url[25:58], url[66:], wait["comment'"])
-                     dna9.comment(url[25:58], url[66:], wait["comment"])
-                     ririn.comment(url[25:58], url[66:], wait["comment1"])
-                     ririn.sendText(msg.to,"Like Success")                     
-                     wait["likeOn"] = False
-            if msg.contentType == 16:
-            	url = msg.contentMetadata("line://home/post?userMid=" + "mid" + "&postId=" + "new_post")
-            	ririn.like(url[25:58], url[66:], likeType=1005)
-            	dna1.like(url[25:58], url[66:], likeType=1002)
-            	dna2.like(url[25:58], url[66:], likeType=1004)
-            	dna3.like(url[25:58], url[66:], likeType=1003)
-            	dna4.like(url[25:58], url[66:], likeType=1001)
-            	dna5.like(url[25:58], url[66:], likeType=1005)
-            	dna6.like(url[25:58], url[66:], likeType=1002)
-            	dna7.like(url[25:58], url[66:], likeType=1004)
-            	dna8.like(url[25:58], url[66:], likeType=1003)
-            	dna9.like(url[25:58], url[66:], likeType=1001)
+                    msg.contentType = 0
+                    if wait["lang"] == "JP":
+                    	url = msg.contentMetadata["line://home/post?userMid=" + "mid" + "&postId=" + "new_post"]
+                    	ririn.like(url[25:58], url[66:], likeType=1005)
+                    	dna1.like(url[25:58], url[66:], likeType=1002)
+                    	dna2.like(url[25:58], url[66:], likeType=1004)
+                    	dna3.like(url[25:58], url[66:], likeType=1003)
+                    	dna4.like(url[25:58], url[66:], likeType=1001)
+                    	dna5.like(url[25:58], url[66:], likeType=1005)
+                    	dna6.like(url[25:58], url[66:], likeType=1002)
+                    	dna7.like(url[25:58], url[66:], likeType=1004)
+                    	dna8.like(url[25:58], url[66:], likeType=1003)
+                    	dna9.like(url[25:58], url[66:], likeType=1001)
+                    	ririn.comment(url[25:58], url[66:], wait["comment"])
+                    	dna1.comment(url[25:58], url[66:], wait["comment"])
+                    	dna2.comment(url[25:58], url[66:], wait["comment"])
+                    	dna3.comment(url[25:58], url[66:], wait["comment'"])
+                    	dna4.comment(url[25:58], url[66:], wait["comment"])
+                    	dna5.comment(url[25:58], url[66:], wait["comment"])
+                    	dna6.comment(url[25:58], url[66:], wait["comment"])
+                    	dna7.comment(url[25:58], url[66:], wait["comment"])
+                    	dna8.comment(url[25:58], url[66:], wait["comment'"])
+                    	dna9.comment(url[25:58], url[66:], wait["comment"])
+                    	ririn.sendText(msg.to,"Like Success")
+                    	wait["likeOn"] = False
+            elif msg.contentType == 16:
+                if wait['timeline'] == True:
+                    msg.contentType = 0
+                    if wait["lang"] == "JP":
+                        msg.text = "post URL\n" + msg.contentMetadata["postEndUrl"]
+                    else:
+                        msg.text = "URLâ†’\n" + msg.contentMetadata["postEndUrl"]
+                    ririn.sendText(msg.to,msg.text)
+            elif msg.text is None:
+                return
 #------------------------------------------=Contact=----------------------------------------#
             elif wait["contact"] == True:
                     msg.contentType = 0
@@ -1002,16 +1002,6 @@ def bot(op):
                         except:
                             cu = ""
                         ririn.sendText(msg.to,"[displayName]:\n" + contact.displayName + "\n[mid]:\n" + msg.contentMetadata["mid"] + "\n[statusMessage]:\n" + contact.statusMessage + "\n[pictureStatus]:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n[coverURL]:\n" + str(cu))
-            elif msg.contentType == 16:
-                if wait['timeline'] == True:
-                    msg.contentType = 0
-                    if wait["lang"] == "JP":
-                        msg.text = "post URL\n" + msg.contentMetadata["postEndUrl"]
-                    else:
-                        msg.text = "URLâ†’\n" + msg.contentMetadata["postEndUrl"]
-                    ririn.sendText(msg.to,msg.text)
-            elif msg.text is None:
-                return
 #-------------------------------------------------------------------------------------------------------------------------#
 #----------------------------------------------------=Keyword=----------------------------------------------------#                  
 #-------------------------------------------------------------------------------------------------------------------------#
@@ -1876,6 +1866,8 @@ def bot(op):
                     if cctv['cyduk'][op.param1]==True:
                         if op.param1 in cctv['point']:
                             Name = ririn.getContact(op.param2).displayName
+                            Np = ririn.getContact(op.param2).pictureStatus
+                            Name = summon(op.param2)
                             if Name in cctv['sidermem'][op.param1]:
                                 pass
                             else:
@@ -1883,13 +1875,13 @@ def bot(op):
                                 if " " in Name:
                                     nick = Name.split(' ')
                                     if len(nick) == 2:
-                                        ririn.sendText(op.param1, "Haii " + "☞ " + nick[0] + " ☜" + "\nNgintip Aja . . .\nChat Kek Idiih (-__-)   ")
+                                        ririn.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nNgintip Aja . . .\nChat Kek Idiih (-__-)   ")
                                         time.sleep(0.2)
                                         summon(op.param1,[op.param2])
                                         ririn.sendContact(op.param1, op.param2)
                                         ririn.sendImageWithURL(op.param1, "http://dl.profile.line-cdn.net{}".format(dan.picturePath))
                                     else:
-                                        ririn.sendText(op.param1, "Haii " + "☞ " + nick[1] + " ☜" + "\nBetah Banget Jadi Penonton. . .\nChat Napa (-__-)   ")
+                                        ririn.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nBetah Banget Jadi Penonton. . .\nChat Napa (-__-)   ")
                                         time.sleep(0.2)
                                         summon(op.param1,[op.param2])
                                         ririn.sendContact(op.param1, op.param2)

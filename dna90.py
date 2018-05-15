@@ -259,6 +259,46 @@ def sendMessageWithMention(to, mid):
         ririn.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
     except Exception as error:
         logError(error)
+        if 'MENTION' in msg.contentMetadata.keys() != None:
+             if wait["detectMention2"] == True:          
+                contact = ririn.getContact(msg._from)
+                cName = contact.displayName
+                balas = ["sᴇᴋᴀʟɪ ʟᴀɢɪ ɴɢᴇ ᴛᴀɢ ɢᴡ sᴜᴍᴘᴀʜɪɴ ᴊᴏᴍʙʟᴏ sᴇᴜᴍᴜʀ ʜɪᴅᴜᴘ!","ᴅᴏɴᴛ ᴛᴀɢ!! ʟᴀɢɪ sɪʙᴜᴋ",cName + " ɴɢᴀᴘᴀɪɴ ɴɢᴇᴛᴀɢ?",cName + " ɴɢɢᴀᴋ ᴜsᴀʜ ᴛᴀɢ-ᴛᴀɢ! ᴋᴀʟᴏ ᴘᴇɴᴛɪɴɢ ʟᴀɴɢsᴜɴɢ ᴘᴄ ᴀᴊᴀ","ᴛᴀɢ ᴍᴜʟᴜ ʟᴏ ᴀɴᴊɪʀʀ!","ᴅɪᴀ ʟᴀɢɪ ᴏғғ", cName + " ᴋᴇɴᴀᴘᴀ ᴛᴀɢ? ᴋᴀɴɢᴇɴ?","ᴅɪᴀ ʟᴀɢɪ ᴛɪᴅᴜʀ\nᴊᴀɴɢᴀɴ ᴅɪ ᴛᴀɢ " + cName, "ᴊᴀɴɢᴀɴ sᴜᴋᴀ ᴛᴀɢ ɢᴜᴀ " + cName, "ᴋᴀᴍᴜ sɪᴀᴘᴀ " + cName + "?", "ᴀᴅᴀ ᴘᴇʀʟᴜ ᴀᴘᴀ " + cName + "?","ᴡᴏɪɪ " + cName + " ᴊᴀɴɢᴀɴ ɴɢᴇᴛᴀɢ, ʀɪɪʙᴜᴛ!"]
+                ret_ = random.choice(balas)
+                image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
+                name = re.findall(r'@(\w+)', msg.text)
+                mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                mentionees = mention['MENTIONEES']
+                for mention in mentionees:
+                       if mention['M'] in Bots:   
+                              ririn.sendText(msg.to,ret_)
+                              ririn.sendImageWithURL(msg.to,image)
+                              msg.contentType = 7   
+                              msg.text = None
+                              msg.contentMetadata = {
+                                                   "STKID": "2754644",
+                                                   "STKPKGID": "1066653",
+                                                   "STKVER": "1" }
+                              ririn.sendMessage(msg)                                
+                              break
+        if 'MENTION' in msg.contentMetadata.keys() != None:
+        	if wait['kickMention'] == True:
+        		contact = ririn.getContact(msg._from)
+        		cName = contact.displayName
+        		balas = ["ᴀᴋᴜ ʙɪʟᴀɴɢ ᴊᴀɴɢᴀɴ ɴɢᴇᴛᴀɢ ʟᴀɢɪ " + cName + "\nᴀᴋᴜ ᴋɪᴄᴋ ᴋᴀᴍᴜ! sᴏʀʀʏ, ʙʏᴇᴇ!!!"]
+        		ret_ = random.choice(balas)                     
+        		name = re.findall(r'@(\w+)', msg.text)
+        		mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+        		mentionees = mention["MENTIONEES"]
+        		for mention in mentionees:
+        			if mention['M'] in admin:
+        				ririn.sendText(msg.to,ret_)
+        				random.choice(KAC).kickoutFromGroup(msg.to,[msg._from])
+        				break                                  
+        			if mention['M'] in Bots:
+        				ririn.sendText(msg.to,ret_)
+        				random.choice(KAC).kickoutFromGroup(msg.to,[msg._from])
+        				break
 #------End Operation & Add Contact-------#
 def bot(op):
     try:

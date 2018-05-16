@@ -1406,42 +1406,42 @@ def bot(op):
                         print ("Protect Off")
                         
             elif msg.text in ["Like me","like me"]: #Semua Bot Ngelike Status Akun Utama
-                if msg.from_ in owner:
+                if msg._from in owner:
                     print ("[Command]Like executed")
-                    kr.sendText(msg.to,"Like Status Owner")
+                    ririn.sendText(msg.to,"Like Status Owner")
                     try:
                       likeme()
                     except:
                       pass
                 
             elif msg.text in ["Like friend","like friend"]: #Semua Bot Ngelike Status Teman
-                if msg.from_ in owner:
+                if msg._from in owner:
                     print ("[Command]Like executed")
-                    kr.sendText(msg.to,"Like Status Teman")
+                    ririn.sendText(msg.to,"Like Status Teman")
                     try:
                       likefriend()
                     except:
                       pass
             
             elif msg.text in ["Like on","like on"]:
-                if msg.from_ in admin:
+                if msg._from in admin:
                     if wait['likeOn'] == True:
                         if wait["lang"] == "JP":
-                            kr.sendText(msg.to,"Done")
+                            ririn.sendText(msg.to,"Done")
                     else:
                         wait['likeOn'] = True
                         if wait["lang"] == "JP":
-                            kr.sendText(msg.to,"Already")
+                            ririn.sendText(msg.to,"Already")
                             
             elif msg.text in ["Like off","like off"]:
-                if msg.from_ in admin:
+                if msg._from in admin:
                     if wait['likeOn'] == False:
                         if wait["lang"] == "JP":
-                            kr.sendText(msg.to,"Done")
+                            ririn.sendText(msg.to,"Done")
                     else:
                         wait['likeOn'] = False
                         if wait["lang"] == "JP":
-                            kr.sendText(msg.to,"Already")
+                            ririn.sendText(msg.to,"Already")
                         
             elif msg.text in ["Auto like"]:
                 wait["likeOn"] = True

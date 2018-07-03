@@ -21,7 +21,7 @@ import requests,urllib,json
 #ririn.log("Timeline Token : " + str(ririn.tl.channelAccessToken))
 
 #Khusus Login Token (Chrome)
-ririn = LINE('Es8F9rvfe5qWM1OyBUKd.UC8K+GXOvK/3A1WWSKmQRq.Ks5f57uNaBJYk8ZYbbM5KSJahM913pRZJI7AoATs9pQ=')
+ririn = LINE()
 ririn.log("Auth Token : " + str(ririn.authToken))
 ririn.log("Timeline Token : " + str(ririn.tl.channelAccessToken))
 

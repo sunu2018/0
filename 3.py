@@ -21,9 +21,9 @@ import requests,urllib,json
 #ririn.log("Timeline Token : " + str(ririn.tl.channelAccessToken))
 
 #Khusus Login Token (Chrome)
-ririn = LINE()
-ririn.log("Auth Token : " + str(ririn.authToken))
-ririn.log("Timeline Token : " + str(ririn.tl.channelAccessToken))
+line = LINE()
+line.log("Auth Token : " + str(ririn.authToken))
+line.log("Timeline Token : " + str(ririn.tl.channelAccessToken))
 
 dna1 = LINE('Esn9u0ubtOSNbrvmZRj2.We7lj7PxgwBQ8O07ppSHuG.yZgTUBb0XWQeIuEeEcOTxrVcnWfEXOKs0ecytY8Ungk=')
 dna1.log("Auth Token : " + str(dna1.authToken))
@@ -142,9 +142,9 @@ helpMessage ="""
                    ✰ ᴅɴᴀ ʙᴏᴛ  ✰
 ╚════════════════════╝
 """
-oepoll = OEPoll(ririn)
-KAC=[ririn,dna1,dna2,dna3,dna4,dna5,dna6,dna7,dna8,dna9]
-mid = ririn.getProfile().mid
+oepoll = OEPoll(line)
+KAC=[line,dna1,dna2,dna3,dna4,dna5,dna6,dna7,dna8,dna9]
+mid = line.getProfile().mid
 Amid = dna1.getProfile().mid
 Bmid = dna2.getProfile().mid
 Cmid = dna3.getProfile().mid
@@ -156,7 +156,7 @@ Hmid = dna8.getProfile().mid
 Imid = dna9.getProfile().mid
 Jmid = dna10.getProfile().mid
 
-responsename = ririn.getProfile().displayName
+responsename = line.getProfile().displayName
 responsename2 = dna1.getProfile().displayName
 responsename3 = dna2.getProfile().displayName
 responsename4 = dna3.getProfile().displayName
